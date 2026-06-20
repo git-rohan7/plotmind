@@ -10,7 +10,7 @@ setup(
     description="Convert any CSV into meaningful graphs automatically.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/plotmind",
+    url="https://github.com/git-rohan7/plotmind",
     packages=find_packages(),
     python_requires=">=3.8",
     install_requires=[
