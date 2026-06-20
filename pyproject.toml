@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plotmind"
+version = "0.1.0"
+description = "Convert any CSV into meaningful graphs automatically."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+keywords = ["csv", "visualization", "charts", "graphs", "data", "plotly", "matplotlib"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+]
+dependencies = [
+    "pandas>=1.3.0",
+    "plotly>=5.0.0",
+    "matplotlib>=3.4.0",
+    "kaleido>=0.2.1",
+]
+
+[project.optional-dependencies]
+seaborn = ["seaborn>=0.11.0"]
+dev = ["pytest>=7.0", "pytest-cov", "black", "flake8"]
+
+[project.scripts]
+plotmind = "plotmind.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/plotmind"
+Issues = "https://github.com/yourusername/plotmind/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
