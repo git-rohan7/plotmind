@@ -69,15 +69,15 @@ plotmind sales.csv --info
 
 ## Features
 
-| Feature | Description |
-|---|---|
-| **Auto-chart selection** | Detects the best chart based on column types |
+| Feature                   | Description                                                  |
+| ------------------------- | ------------------------------------------------------------ |
+| **Auto-chart selection**  | Detects the best chart based on column types                 |
 | **Column type detection** | Identifies numerical, categorical, datetime, boolean columns |
-| **Data cleaning** | Fills missing values, removes duplicates, fixes types |
-| **Interactive charts** | Plotly backend for zoom/hover/pan |
-| **Static charts** | Matplotlib backend for PNG/PDF output |
-| **Export** | PNG, PDF, HTML, SVG |
-| **CLI** | Full command-line interface |
+| **Data cleaning**         | Fills missing values, removes duplicates, fixes types        |
+| **Interactive charts**    | Plotly backend for zoom/hover/pan                            |
+| **Static charts**         | Matplotlib backend for PNG/PDF output                        |
+| **Export**                | PNG, PDF, HTML, SVG                                          |
+| **CLI**                   | Full command-line interface                                  |
 
 ---
 
@@ -85,21 +85,22 @@ plotmind sales.csv --info
 
 PlotMind supports these chart types (auto-selected or manually chosen):
 
-| Chart | When auto-selected |
-|---|---|
-| `histogram` | Single numerical column |
-| `bar` | Categorical + numerical (high cardinality) |
-| `pie` | Categorical + numerical (≤6 unique categories) |
-| `scatter` | Two numerical columns |
-| `line` | Datetime + numerical |
-| `heatmap` | Many numerical columns (correlation matrix) |
-| `box` | Box plot for distribution |
+| Chart       | When auto-selected                             |
+| ----------- | ---------------------------------------------- |
+| `histogram` | Single numerical column                        |
+| `bar`       | Categorical + numerical (high cardinality)     |
+| `pie`       | Categorical + numerical (≤6 unique categories) |
+| `scatter`   | Two numerical columns                          |
+| `line`      | Datetime + numerical                           |
+| `heatmap`   | Many numerical columns (correlation matrix)    |
+| `box`       | Box plot for distribution                      |
 
 ---
 
 ## API Reference
 
 ### `load_csv(filepath, **kwargs) → DataFrame`
+
 Load a CSV and validate it.
 
 ```python
@@ -109,6 +110,7 @@ df = load_csv("data.csv")
 ---
 
 ### `clean_dataframe(df, verbose=False) → DataFrame`
+
 Clean: fill missing values, remove duplicates, coerce types.
 
 ```python
@@ -118,6 +120,7 @@ df = clean_dataframe(df, verbose=True)
 ---
 
 ### `detect_columns(df) → dict`
+
 Return a dict of `{column_name: type}` for each column.
 Types: `numerical`, `categorical`, `datetime`, `boolean`, `unknown`.
 
@@ -130,6 +133,7 @@ types = detect_columns(df)
 ---
 
 ### `recommend_chart(df, x=None, y=None) → (chart, x_col, y_col)`
+
 Recommend the best chart. Returns a tuple.
 
 ```python
@@ -141,6 +145,7 @@ print(chart)  # e.g. 'scatter'
 ---
 
 ### `plot(df, chart=None, x=None, y=None, title=None, backend='plotly', show=True) → Figure`
+
 Generate a chart. Returns the figure object.
 
 ```python
@@ -151,6 +156,7 @@ fig = plot(df, backend="matplotlib", show=False)  # static, no display
 ---
 
 ### `export(fig, path, fmt=None) → str`
+
 Export the figure. Format is inferred from the file extension.
 
 ```python
@@ -189,29 +195,11 @@ pytest tests/ -v
 - pandas ≥ 1.3
 - plotly ≥ 5.0
 - matplotlib ≥ 3.4
-- kaleido ≥ 0.2.1  *(for Plotly static image export)*
+- kaleido ≥ 0.2.1 _(for Plotly static image export)_
 
 Optional:
-- seaborn *(for nicer heatmaps with `pip install plotmind[seaborn]`)*
 
----
-
-## Publishing to PyPI
-
-```bash
-pip install build twine
-python -m build
-twine upload dist/*
-```
-
----
-
-## Roadmap
-
-- **v0.2** – CLI improvements + test coverage
-- **v0.3** – Docs + PyPI release
-- **v0.4** – AI prompt-based visualization (`plot(df, prompt="Show me trends over time")`)
-- **v0.5** – Smart dashboards & auto-insights
+- seaborn _(for nicer heatmaps with `pip install plotmind[seaborn]`)_
 
 ---
 
