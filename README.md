@@ -15,7 +15,7 @@ pip install plotmind
 Or install from source:
 
 ```bash
-git clone https://github.com/yourusername/plotmind
+git clone https://github.com/git-rohan7/plotmind
 cd plotmind
 pip install -e .
 ```
