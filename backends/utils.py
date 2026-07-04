@@ -14,12 +14,6 @@ def preview(df: pd.DataFrame, n: int = 5) -> None:
 
 
 def column_stats(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Return a summary DataFrame with stats for each column.
-
-    Returns:
-        DataFrame with columns: dtype, null_count, null_pct, unique, sample_values
-    """
     rows = []
     for col in df.columns:
         series = df[col]
@@ -36,17 +30,7 @@ def column_stats(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def filter_columns(df: pd.DataFrame, types: Optional[List[str]] = None) -> List[str]:
-    """
-    Return column names matching the given dtype categories.
 
-    Args:
-        df: Input DataFrame.
-        types: List of pandas dtype kinds: 'number', 'object', 'datetime', 'bool', etc.
-               If None, return all columns.
-
-    Returns:
-        List of matching column names.
-    """
     if types is None:
         return list(df.columns)
 
