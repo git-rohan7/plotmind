@@ -7,21 +7,6 @@ from typing import Optional
 
 
 def export(fig, path: str, fmt: Optional[str] = None) -> str:
-    """
-    Export a Plotly or Matplotlib figure to a file.
-
-    Args:
-        fig: A Plotly Figure or Matplotlib Figure object.
-        path: Output file path (e.g., 'chart.png', 'output/chart.html').
-        fmt: Format override: 'png', 'pdf', 'html'. Auto-detected from path if not given.
-
-    Returns:
-        The absolute path to the saved file.
-
-    Raises:
-        ValueError: If the format is not supported.
-    """
-    # Ensure output directory exists
     out_dir = os.path.dirname(os.path.abspath(path))
     os.makedirs(out_dir, exist_ok=True)
 
@@ -50,10 +35,6 @@ def export(fig, path: str, fmt: Optional[str] = None) -> str:
     print(f"[PlotMind] Saved → {abs_path}")
     return abs_path
 
-
-# ─────────────────────────────────────────────
-# Helpers
-# ─────────────────────────────────────────────
 
 def _detect_fig_type(fig) -> str:
     try:
