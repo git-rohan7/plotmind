@@ -1,14 +1,3 @@
-"""
-cli.py – Command-line interface for PlotMind.
-
-Usage:
-    plotmind data.csv
-    plotmind data.csv --chart bar
-    plotmind data.csv --chart scatter --x col1 --y col2
-    plotmind data.csv --chart line --export output.html
-    plotmind data.csv --backend matplotlib --export chart.png
-"""
-
 import argparse
 import sys
 
